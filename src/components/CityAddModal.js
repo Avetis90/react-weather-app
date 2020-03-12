@@ -10,7 +10,6 @@ const CityAddModal = () => {
         e.preventDefault()
     }
     const handleHide = () => {
-        console.log('close')
         cityDispatch({type: 'HIDE_MODAL'})
     }
     const handleCity = address => {

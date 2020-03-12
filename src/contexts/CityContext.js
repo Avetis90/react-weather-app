@@ -28,7 +28,6 @@ const CityContextProvider = (props) => {
                 return response.json();
             })
             .then((data) => {
-                console.log(data)
                 cityDispatch({
                     type: 'SET_CITY',
                     currentCity: {

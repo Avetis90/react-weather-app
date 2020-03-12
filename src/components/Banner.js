@@ -1,9 +1,7 @@
 import React, {useContext} from "react";
 import {CityContext} from "../contexts/CityContext";
-import moment from "moment";
 
 const Banner = (props) => {
-    console.log(moment.unix(1583960400 - 14400).format())
     const {cityState, cityDispatch} = useContext(CityContext);
     const {currentCity, activeDate} = cityState;
     const info = currentCity.list[activeDate][0];

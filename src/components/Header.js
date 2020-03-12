@@ -2,13 +2,14 @@ import React, {useContext} from 'react'
 import SearchInput from "./Search";
 import {CityContext} from "../contexts/CityContext";
 import moment from "moment";
-import {Link} from "react-router-dom";
+import {Link,useHistory} from "react-router-dom";
 
 
 const Header = () => {
     const {cityDispatch, cityState} = useContext(CityContext);
-    const {status} = cityState
-    const statuses = ['today', 'tomorrow', 'week']
+    const {status , currentCity} = cityState
+    const statuses = ['today', 'tomorrow', 'week'];
+    const history = useHistory()
     const handleStatus = (status) => {
 
 
@@ -16,6 +17,7 @@ const Header = () => {
             type: 'CHANGE_STATUS',
             status
         })
+        history.push(`/${currentCity.id}`)
         switch (status) {
             case 'today':
                 return cityDispatch({

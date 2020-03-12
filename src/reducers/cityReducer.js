@@ -13,6 +13,7 @@ export const cityReducer = (state, action) => {
     switch (action.type) {
         case 'SET_CITY' :
             const list = action.currentCity
+            const id= uuidv1()
             return {
                 ...state,
                 currentCity: {
@@ -20,6 +21,7 @@ export const cityReducer = (state, action) => {
                     lat: action.currentCity.lat,
                     lng: action.currentCity.lng,
                     list: group(list),
+                    id
                 }
             }
         case 'ADD_CITY' :

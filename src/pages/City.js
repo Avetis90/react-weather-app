@@ -21,9 +21,13 @@ const City = props => {
         const city = cities.filter(city => {
             return city.id === id
         })
-        city.length ? fetchData(`lat=${city[0].lat}&lon=${city[0].lng}`)
-            :
+        if (city.length){
+            fetchData(`lat=${city[0].lat}&lon=${city[0].lng}`)
+        }else if (currentCity.id === id){
+
+        }else{
             history.push('/')
+        }
         cityDispatch({
             type: 'REMOVE_LOADING'
         })

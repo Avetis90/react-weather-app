@@ -3,12 +3,9 @@ import moment from "moment";
 
 
 const WeatherInfo = props => {
-    console.log(props, 'props')
     const {date, status, list} = props
     const data = list[date]
     const week = Object.keys(list)
-    console.log(props.list)
-    let dayName = ''
 
     return (
 
@@ -38,15 +35,21 @@ const WeatherInfo = props => {
 
                 :
                 <>
-                    <div className="week__wrapper">
-                        {week.map((day) => {
-                            return (
-                                <div className="week" key={day}>
-                                    <h3>{day}</h3>
-                                    <p>{Math.round(props.list[day][0].main.temp)} &deg; C</p>
-                                </div>
-                            )
-                        })}
+                    <div className="week__info">
+                        <div className="info__header">
+                            <h4 className="info__day--name">{status}</h4>
+                            <p className="info__date">{week[0]} - {week[week.length-1]}</p>
+                        </div>
+                        <div className="week__wrapper">
+                            {week.map((day) => {
+                                return (
+                                    <div className="week" key={day}>
+                                        <h3>{day}</h3>
+                                        <p>{Math.round(props.list[day][0].main.temp)} &deg; C</p>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
                 </>
             }
