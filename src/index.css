@@ -26,17 +26,22 @@ nav {
 
 .menu {
     display: flex;
+    align-items: center;
 }
 
 .menu__item {
-    margin-right: 30px;
     text-transform: capitalize;
     text-decoration: none;
     color: #b0b2b3;
     position: relative;
     font-size: 1.1rem;
+    padding: 0 25px;
+    cursor: pointer;
 }
-
+a.menu__item img {
+    display: block;
+    width: 40px;
+}
 .menu__item.menu__item--active {
     color: #828384;
 }
@@ -46,7 +51,7 @@ nav {
     width: 100%;
     height: 3px;
     position: absolute;
-    bottom: -21px;
+    bottom: -26px;
     left: 0;
     background: #828384;
 }
@@ -280,4 +285,25 @@ span.item__time {
 
 span.item__weather {
     width: 80%;
+}
+.week__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.week {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e5e6e6;
+    padding: 30px;
+}
+.week:hover{
+    box-shadow: 0 0 10px 0 #c2c4c58f;
+}
+
+.week h3 {
+    margin-bottom: 15px;
 }

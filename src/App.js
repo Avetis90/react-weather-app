@@ -6,8 +6,6 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header";
 import HomePage from "./pages";
-import Tomorrow from "./pages/Tomorrow";
-import Week from "./pages/Week";
 import CityAddModal from "./components/CityAddModal";
 import City from "./pages/City";
 
@@ -22,12 +20,6 @@ function App() {
                     <Switch>
                         <Route exact path="/" >
                             <HomePage/>
-                        </Route>
-                        <Route exact path="/tomorrow" >
-                            <Tomorrow/>
-                        </Route>
-                        <Route exact path="/week" >
-                            <Week/>
                         </Route>
                         <Route exact path="/:id" >
                             <City/>

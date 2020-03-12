@@ -52,6 +52,16 @@ export const cityReducer = (state, action) => {
                 ...state,
                 modalOpened: false
             }
+        case  'CHANGE_STATUS' :
+            return {
+                ...state,
+                status: action.status
+            }
+        case  'CHANGE_ACTIVEDATE' :
+            return {
+                ...state,
+                activeDate: action.date
+            }
         default :
             return state
 

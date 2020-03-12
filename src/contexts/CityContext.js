@@ -16,8 +16,12 @@ const CityContextProvider = (props) => {
         activeDate: moment(new Date())/*.add(1,'day')*/.format('MMMM, D'),
         cities: [],
         loading: true,
-        modalOpened: false
+        modalOpened: false,
+        status : 'today'
+
     }
+    const [cityState, cityDispatch] = useReducer(cityReducer, initialState);
+
     const fetchData = async (args) => {
         fetch(`${process.env.REACT_APP_OPEN_WEATHER_URL}${args}&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}&units=metric&libraries=geometry,drawing,places`)
             .then((response) => {
@@ -46,7 +50,6 @@ const CityContextProvider = (props) => {
                 return response.json();
             })
             .then((data) => {
-                console.log(data.city.coord ,'data')
                 cityDispatch({
                     type: 'ADD_CITY',
                     city:{
@@ -61,7 +64,7 @@ const CityContextProvider = (props) => {
                 })
             });
     }
-    const [cityState, cityDispatch] = useReducer(cityReducer, initialState);
+
     useEffect(() => {
         const gmapScriptEl = document.createElement(`script`)
         gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=places,geometry`
